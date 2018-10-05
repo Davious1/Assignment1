@@ -1,4 +1,4 @@
-package com.example.assignment0;
+package com.example.Assignment0;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         adapter = ArrayAdapter.createFromResource(this, R.array.emotion_names, android.R.layout.simple_spinner_item);
         bodyText = (EditText) findViewById(R.id.body);
         Button saveButton = (Button) findViewById(R.id.save);
-        oldEntryList = (ListView) findViewById(R.id.history);
+        oldEntryList = (TextView) findViewById(R.id.history);
 
 
         Intent intent = new Intent(this, DisplayMessageActivity.class);
@@ -46,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
 
-        save.setOnClickListener(new View.OnClickListener() {
+        saveButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
                 setResult(RESULT_OK);
@@ -55,8 +56,8 @@ public class MainActivity extends AppCompatActivity {
                 finish();
 
             }
-        }
-    }
+        })
+    };
     protected void onStart() {
         // TODO Auto-generated method stub
         super.onStart();
